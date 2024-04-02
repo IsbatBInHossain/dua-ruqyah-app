@@ -8,16 +8,24 @@ const config: Config = {
   ],
   darkMode: 'selector',
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1140px',
+      xl: '1280px',
+      '2xl': '1640px',
+    },
     extend: {
       colors: {
         primary: '#1FA45B',
         secondary: {
-          DEFAULT: '#F7F8FA',
+          DEFAULT: '#ebeef2',
           dark: '#122337',
         },
+        lettering: '#393939',
         background: {
           1: {
-            DEFAULT: '#fff',
+            DEFAULT: '#FFF',
             dark: '#223449',
           },
           2: {
