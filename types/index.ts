@@ -39,3 +39,10 @@ export interface Dua {
   refference_en: string | null
   audio: string | null
 }
+
+export interface SubCategoryObject {
+  name: string
+  duas: Dua[]
+}
+
+export type SubCategoryRecord = Record<number, SubCategoryObject>

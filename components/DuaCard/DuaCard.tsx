@@ -1,22 +1,23 @@
 import React from 'react'
 import { Dua } from '@/types'
 import Image from 'next/image'
+import DuaFooter from './DuaFooter'
 
 const DuaCard = ({ dua }: { dua: Dua }) => {
   return (
     <div
       id={'dua_id_' + dua.dua_id}
-      className='mb-5 p-6 bg-base-100 rounded-xl bg-white'
+      className='mb-5 p-6 rounded-xl bg-white'
       key={dua.dua_id}
     >
       <div className='flex items-center gap-3'>
-        <Image src='/assets/duacard.svg' alt='icon' width={20} height={20} />
+        <Image src='/assets/duacard.svg' alt='icon' width={35} height={35} />
         <h3 className='font-semibold text-green-600'>
           {dua.dua_id}. {dua.dua_name_en}
         </h3>
       </div>
 
-      <div className='text-xl'>
+      <div>
         {dua.top_en && <p className='mt-5'>{dua.top_en}</p>}
         {dua.dua_arabic && (
           <p className='text-right text-2xl tracking-wider font-bold my-8'>
@@ -46,8 +47,7 @@ const DuaCard = ({ dua }: { dua: Dua }) => {
           <p className='mt-1 text-xl mb-5'>{dua.refference_en}</p>
         </div>
       )}
-
-      {/* <DuaCard /> */}
+      <DuaFooter dua={dua} />
     </div>
   )
 }
