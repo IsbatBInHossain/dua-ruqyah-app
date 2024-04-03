@@ -1,9 +1,14 @@
-import CategoryAside from './CategoryAside'
+'use client'
 
-const CategoryPage = () => {
+import { getCategories } from '@/lib/api/apis'
+import CategoryAside from './CategoryAside'
+import { Category } from '@/types'
+
+const CategoryPage = async () => {
+  const categories: Category[] = await getCategories()
   return (
     <div className=''>
-      <CategoryAside />
+      <CategoryAside categories={categories} />
     </div>
   )
 }

@@ -25,7 +25,7 @@ const config: Config = {
         lettering: '#393939',
         background: {
           1: {
-            DEFAULT: '#FFF',
+            DEFAULT: '#f7f7f8',
             dark: '#223449',
           },
           2: {

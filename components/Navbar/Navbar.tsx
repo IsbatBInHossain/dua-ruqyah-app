@@ -60,7 +60,7 @@ const Navbar = () => {
         </button>
         <IoIosSettings
           onClick={toggleSettings}
-          className='w-6 h-6 text-primary hidden max-2xl:block'
+          className='w-6 h-6 text-primary hidden max-2xl:block cursor-pointer'
         />
       </div>
     </nav>

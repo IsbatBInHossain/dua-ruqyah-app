@@ -1,12 +1,16 @@
-import { getCategories } from '@/lib/api/apis'
+'use client'
 import { IoIosSearch } from 'react-icons/io'
+import CategoryCard from './CategoryCard'
+import { Category } from '@/types'
+import { useState } from 'react'
 
-const CategoryAside = async () => {
-  const categories = await getCategories()
+const CategoryAside = ({ categories }: { categories: Category[] }) => {
+  const [categoryIndex, setCategoryIndex] = useState(1)
+
   return (
-    <aside className=' w-96 h-[calc(100vh-14%)] max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark overflow-y-auto scrollbar'>
+    <div className=' w-80 h-[calc(100vh-14%)] max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark'>
       <div className=' w-full h-full flex flex-col'>
-        <div className=' py-4 bg-primary text-center text-white font-medium'>
+        <div className=' py-4 bg-primary rounded-t-xl text-center text-white font-medium'>
           <h2>Categories</h2>
         </div>
         <form>
@@ -21,8 +25,18 @@ const CategoryAside = async () => {
             />
           </div>
         </form>
+        <aside className='overflow-y-auto scrollbar'>
+          {categories.map(category => (
+            <CategoryCard
+              key={category.id}
+              category={category}
+              index={categoryIndex}
+              setIndex={setCategoryIndex}
+            />
+          ))}
+        </aside>
       </div>
-    </aside>
+    </div>
   )
 }
 
