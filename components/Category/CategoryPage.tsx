@@ -1,5 +1,11 @@
+import CategoryAside from './CategoryAside'
+
 const CategoryPage = () => {
-  return <div>CategoryPage</div>
+  return (
+    <div className=''>
+      <CategoryAside />
+    </div>
+  )
 }
 
 export default CategoryPage
