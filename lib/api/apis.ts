@@ -6,7 +6,7 @@ export const getCategories = async () => {
 }
 export const getSubCategories = async (categoryId: Number) => {
   const subCategories = await fetch(
-    `${API}categories/${categoryId}/sub-categories/`
+    `${API}/categories/${categoryId}/sub-categories/`
   )
   return subCategories.json()
 }

@@ -2,13 +2,26 @@
 import { IoIosSearch } from 'react-icons/io'
 import CategoryCard from './CategoryCard'
 import { Category } from '@/types'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { getCategories } from '@/lib/api/apis'
 
-const CategoryAside = ({ categories }: { categories: Category[] }) => {
-  const [categoryIndex, setCategoryIndex] = useState(1)
+const CategoryAside = () => {
+  const params = new URLSearchParams(useSearchParams().toString())
+  const catId = Number(params.get('cat_id')) || 1
+  const [categoryIndex, setCategoryIndex] = useState(catId)
+  const [categories, setCategories] = useState<Category[] | null>(null)
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      const categories: Category[] = await getCategories()
+      setCategories(categories)
+    }
+    fetchCategories()
+  }, [])
 
   return (
-    <div className=' w-80 h-[calc(100vh-14%)] max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark'>
+    <div className=' w-80 h-[calc(100vh-7%)] max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark'>
       <div className=' w-full h-full flex flex-col'>
         <div className=' py-4 bg-primary rounded-t-xl text-center text-white font-medium'>
           <h2>Categories</h2>
@@ -26,14 +39,15 @@ const CategoryAside = ({ categories }: { categories: Category[] }) => {
           </div>
         </form>
         <aside className='overflow-y-auto scrollbar'>
-          {categories.map(category => (
-            <CategoryCard
-              key={category.id}
-              category={category}
-              index={categoryIndex}
-              setIndex={setCategoryIndex}
-            />
-          ))}
+          {categories &&
+            categories.map(category => (
+              <CategoryCard
+                key={category.id}
+                category={category}
+                index={categoryIndex}
+                setIndex={setCategoryIndex}
+              />
+            ))}
         </aside>
       </div>
     </div>
