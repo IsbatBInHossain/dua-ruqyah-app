@@ -1,10 +1,9 @@
 'use client'
 import { getDuasBySubCategory } from '@/lib/api/apis'
 import { Dua } from '@/types'
-import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { BsArrowReturnRight } from 'react-icons/bs'
+import Image from 'next/image'
 
 interface Props {
   subcategoryId: number
@@ -45,8 +44,14 @@ const CategoryDuas = ({ subcategoryId, categoryId, subcategoryURL }: Props) => {
                 subcategoryId == dua.subcat_id ? 'block' : 'hidden'
               }`}
             >
-              <div className='flex'>
-                <BsArrowReturnRight className='-translate-y-1 mr-2' />
+              <div className='flex items-center'>
+                <Image
+                  src='/assets/dua.svg'
+                  alt='arrow'
+                  width={20}
+                  height={20}
+                  className='-translate-y-1 mr-2'
+                />
                 <p className='text-2xs my-3 text-left w-[95%] dark:text-gray-300 cursor-pointer'>
                   {dua.dua_name_en}
                 </p>

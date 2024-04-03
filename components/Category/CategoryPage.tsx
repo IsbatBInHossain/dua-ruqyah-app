@@ -1,11 +1,11 @@
-import { getCategories } from '@/lib/api/apis'
 import CategoryAside from './CategoryAside'
-import { Category } from '@/types'
+import CategoryBody from './CategoryBody'
 
 const CategoryPage = async () => {
   return (
-    <div className=''>
+    <div className=' flex gap-6'>
       <CategoryAside />
+      <CategoryBody />
     </div>
   )
 }

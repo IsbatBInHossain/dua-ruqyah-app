@@ -21,7 +21,7 @@ const CategoryAside = () => {
   }, [])
 
   return (
-    <div className=' w-80 h-[calc(100vh-7%)] max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark'>
+    <div className=' w-96 h-screen sticky max-lg:hidden rounded-xl bg-white dark:bg-background-1-dark'>
       <div className=' w-full h-full flex flex-col'>
         <div className=' py-4 bg-primary rounded-t-xl text-center text-white font-medium'>
           <h2>Categories</h2>
