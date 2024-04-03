@@ -1,11 +1,17 @@
+'use client'
+
 import { FaSortDown } from 'react-icons/fa'
 import { IoIosSettings, IoIosSearch } from 'react-icons/io'
 import { MdKeyboardArrowLeft } from 'react-icons/md'
 import Image from 'next/image'
-import profile from '@/public/assets/profile.svg'
-import duaLogo from '@/public/assets/dua-logo.svg'
 
 const Navbar = () => {
+  const toggleSettings = () => {
+    const settings = document.getElementById('settings')!
+    settings.classList.remove('max-2xl:translate-x-full')
+    ;(settings.nextSibling as HTMLElement).style.display = 'block'
+  }
+
   return (
     <nav className='flex flex-row justify-between bg-transparent md:max-xl:bg-white max-xl:p-7'>
       <div className=' flex flex-row items-center justify-between w-9/12 md:max-xl:w-10/12'>
@@ -14,7 +20,12 @@ const Navbar = () => {
           <h1 className='text-2xl max-md:text-xl'>Duas Page</h1>
         </div>
         <div className=' flex-row items-center gap-4 hidden md:max-xl:flex'>
-          <Image src={duaLogo} alt='Dua logo' width={50} height={50}></Image>
+          <Image
+            src='/assets/dua-logo.svg'
+            alt='Dua logo'
+            width={50}
+            height={50}
+          ></Image>
           <h1 className='text-xl font-semibold'>Dua & Ruqyah</h1>
         </div>
         <div className=' flex items-center'>
@@ -39,10 +50,18 @@ const Navbar = () => {
 
       <div className='flex flex-row max-lg:flex-row-reverse items-center justify-end gap-5'>
         <button className='flex items-center gap-2 max-md:hidden'>
-          <Image src={profile} alt='profile icon' width={45} height={45} />
+          <Image
+            src='/assets/profile.svg'
+            alt='profile icon'
+            width={45}
+            height={45}
+          />
           <FaSortDown className='w-3 h-3' />
         </button>
-        <IoIosSettings className='w-6 h-6 text-primary hidden max-2xl:block' />
+        <IoIosSettings
+          onClick={toggleSettings}
+          className='w-6 h-6 text-primary hidden max-2xl:block'
+        />
       </div>
     </nav>
   )

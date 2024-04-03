@@ -1,17 +1,16 @@
-import alldua from '../public/assets/navmenu/alldua.svg'
-import home from '../public/assets/navmenu/home.svg'
-import memorize from '../public/assets/navmenu/memorize.svg'
-import bookmark from '../public/assets/navmenu/bookmark.svg'
-import ruqyah from '../public/assets/navmenu/ruqyah.svg'
-import duaInfo from '../public/assets/navmenu/dua-info.svg'
-import books from '../public/assets/navmenu/books.svg'
-
 export const menuList: { name: string; icon: string; link: string }[] = [
-  { name: 'Home', icon: home, link: '/' },
-  { name: 'All Duas', icon: alldua, link: '/' },
-  { name: 'Memorize', icon: memorize, link: '/' },
-  { name: 'Bookmark', icon: bookmark, link: '/' },
-  { name: 'Ruqyah', icon: ruqyah, link: '/' },
-  { name: 'Dua Info', icon: duaInfo, link: '/' },
-  { name: 'Books', icon: books, link: '/' },
+  { name: 'Home', icon: '/assets/navmenu/home.svg', link: '/' },
+  { name: 'All Duas', icon: '/assets/navmenu/alldua.svg', link: '/' },
+  { name: 'Memorize', icon: '/assets/navmenu/memorize.svg', link: '/' },
+  { name: 'Bookmark', icon: '/assets/navmenu/bookmark.svg', link: '/' },
+  { name: 'Ruqyah', icon: '/assets/navmenu/ruqyah.svg', link: '/' },
+  { name: 'Dua Info', icon: '/assets/navmenu/dua-info.svg', link: '/' },
+  { name: 'Books', icon: '/assets/navmenu/books.svg', link: '/' },
+]
+
+export const settingMenu: { name: string; icon: string }[] = [
+  { name: 'Language', icon: '/assets/setting/language.svg' },
+  { name: 'General', icon: '/assets/setting/general.svg' },
+  { name: 'Font', icon: '/assets/setting/font.svg' },
+  { name: 'Appearance', icon: '/assets/setting/font.svg' },
 ]

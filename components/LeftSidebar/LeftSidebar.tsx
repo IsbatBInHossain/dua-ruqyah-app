@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BiSolidDonateHeart } from 'react-icons/bi'
 import { menuList } from '@/constants/constants'
-import duaLogo from '@/public/assets/dua-logo.svg'
 
 const LeftSidebar = () => {
   return (
@@ -15,7 +14,12 @@ const LeftSidebar = () => {
             href={'/'}
             className='block mb-14 hover:drop-shadow-[0_0px_10px_rgb(0,0,0,0.3)] duration-200'
           >
-            <Image src={duaLogo} alt='Dua logo' width={55} height={55}></Image>
+            <Image
+              src='/assets/dua-logo.svg'
+              alt='Dua logo'
+              width={55}
+              height={55}
+            ></Image>
           </Link>
         </li>
         {menuList.map(menu => (
