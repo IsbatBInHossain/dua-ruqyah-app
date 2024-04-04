@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { BiSolidDonateHeart } from 'react-icons/bi'
 import { menuList } from '@/constants/constants'
+import SidebarItems from './SidebarItems'
 
 const LeftSidebar = () => {
   return (
@@ -22,21 +23,8 @@ const LeftSidebar = () => {
             ></Image>
           </Link>
         </li>
-        {menuList.map(menu => (
-          <li key={menu.name}>
-            <Link
-              href={menu.link}
-              className='p-3 block bg-gray-100 hover:bg-gray-200 group duration-200 rounded-full dark:bg-background-2-dark'
-            >
-              <Image
-                src={menu.icon}
-                alt={menu.name}
-                className=' group-hover:scale-110 duration-300 dark:fill-white'
-                width={20}
-                height={20}
-              ></Image>
-            </Link>
-          </li>
+        {menuList.map(item => (
+          <SidebarItems item={item} key={item.name} />
         ))}
         <li>
           <Link
