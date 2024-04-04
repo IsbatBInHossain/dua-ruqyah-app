@@ -26,11 +26,23 @@ const CategoryAside = () => {
     fetchCategories()
   }, [])
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1140) {
+        hideWhenBreakpointReached()
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <>
       <div
         id='category_aside'
-        className=' w-[430px] z-50 h-screen sticky rounded-xl transition-all duration-300 bg-white dark:bg-background-1-dark max-2xl:min-w-[340px] max-lg:fixed max-lg:rounded-r-none max-lg:left-0 max-lg:h-[100vh] max-lg:top-0 -max-lg:translate-x-full'
+        className=' w-[430px] z-[15] h-screen sticky rounded-xl transition-all duration-300 bg-white dark:bg-background-1-dark max-2xl:min-w-[340px] max-lg:fixed max-lg:rounded-r-none max-lg:left-0 max-lg:h-[100vh] max-lg:top-0 -max-lg:translate-x-full'
       >
         <div className=' w-full h-full flex flex-col'>
           <div className=' py-4 bg-primary rounded-t-xl text-center text-white font-medium'>
