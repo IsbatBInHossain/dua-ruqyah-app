@@ -1,7 +1,7 @@
 'use client'
 import { IoIosSearch } from 'react-icons/io'
 import CategoryCard from './CategoryCard'
-import { Category } from '@/types'
+import { CategoryType } from '@/types'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { getCategories } from '@/lib/api/apis'
@@ -10,11 +10,11 @@ const CategoryAside = () => {
   const params = new URLSearchParams(useSearchParams().toString())
   const catId = Number(params.get('cat_id')) || 1
   const [categoryIndex, setCategoryIndex] = useState(catId)
-  const [categories, setCategories] = useState<Category[] | null>(null)
+  const [categories, setCategories] = useState<CategoryType[] | null>(null)
 
   useEffect(() => {
     const fetchCategories = async () => {
-      const categories: Category[] = await getCategories()
+      const categories: CategoryType[] = await getCategories()
       setCategories(categories)
     }
     fetchCategories()

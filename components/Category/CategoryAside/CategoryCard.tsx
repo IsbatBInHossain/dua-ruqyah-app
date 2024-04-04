@@ -1,12 +1,12 @@
 'use client'
 import formatToValidUrlString from '@/lib/utils/formatToValidUrlString'
-import { Category } from '@/types'
+import { CategoryType } from '@/types'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import SubCategory from './SubCategory'
 
 interface CategoryCardProps {
-  category: Category
+  category: CategoryType
   index: Number
   setIndex: (newIndex: number) => void
 }

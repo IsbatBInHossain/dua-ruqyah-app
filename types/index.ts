@@ -1,4 +1,4 @@
-export interface Category {
+export interface CategoryType {
   id: number
   cat_id: number
   cat_name_bn: string
@@ -8,7 +8,7 @@ export interface Category {
   cat_icon: string
 }
 
-export interface SubCategory {
+export interface SubCategoryType {
   id: number
   cat_id: number
   subcat_id: number
@@ -17,7 +17,7 @@ export interface SubCategory {
   no_of_dua: number
 }
 
-export interface Dua {
+export interface DuaType {
   id: number
   cat_id: number
   subcat_id: number
@@ -42,7 +42,7 @@ export interface Dua {
 
 export interface SubCategoryObject {
   name: string
-  duas: Dua[]
+  duas: DuaType[]
 }
 
 export type SubCategoryRecord = Record<number, SubCategoryObject>

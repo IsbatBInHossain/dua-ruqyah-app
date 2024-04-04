@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dua } from '@/types'
+import { DuaType } from '@/types'
 import Image from 'next/image'
 import DuaFooter from './DuaFooter'
 
-const DuaCard = ({ dua }: { dua: Dua }) => {
+const DuaCard = ({ dua }: { dua: DuaType }) => {
   return (
     <div
       id={'dua_id_' + dua.id}

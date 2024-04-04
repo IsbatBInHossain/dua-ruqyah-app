@@ -1,6 +1,6 @@
 'use client'
 import { getSubCategories } from '@/lib/api/apis'
-import { SubCategory } from '@/types'
+import { SubCategoryType } from '@/types'
 import React, { useEffect, useState } from 'react'
 import CategoryDuas from './CategoryDuas'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -12,7 +12,9 @@ const SubCategory = ({
   categoryId: number
   categoryUrl: string
 }) => {
-  const [subCategories, setSubCategories] = useState<SubCategory[] | null>(null)
+  const [subCategories, setSubCategories] = useState<SubCategoryType[] | null>(
+    null
+  )
   const subcatUrl = `${categoryUrl}&subcat_id=`
   const router = useRouter()
   const params = new URLSearchParams(useSearchParams().toString())
@@ -39,7 +41,7 @@ const SubCategory = ({
   return (
     <div className='border-l-2 border-dotted border-primary ml-6 my-2'>
       {subCategories &&
-        subCategories.map((subCategory: SubCategory) => (
+        subCategories.map((subCategory: SubCategoryType) => (
           <div
             key={subCategory.id}
             className='flex flex-col justify-start items-start gap-y-2 ml-3 cursor-pointer'

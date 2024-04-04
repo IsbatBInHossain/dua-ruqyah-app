@@ -1,6 +1,6 @@
 'use client'
 import { getDuasBySubCategory } from '@/lib/api/apis'
-import { Dua } from '@/types'
+import { DuaType } from '@/types'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ interface Props {
 
 const CategoryDuas = ({ subcategoryId, categoryId, subcategoryURL }: Props) => {
   const router = useRouter()
-  const [duas, setDuas] = useState<Dua[] | null>(null)
+  const [duas, setDuas] = useState<DuaType[] | null>(null)
 
   const handleClick = (e: any, id: number) => {
     e.preventDefault()
