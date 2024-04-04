@@ -1,10 +1,9 @@
 'use client'
 import { getSubCategories } from '@/lib/api/apis'
 import { SubCategory } from '@/types'
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import CategoryDuas from './CategoryDuas'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const SubCategory = ({
   categoryId,
@@ -14,8 +13,10 @@ const SubCategory = ({
   categoryUrl: string
 }) => {
   const [subCategories, setSubCategories] = useState<SubCategory[] | null>(null)
-  const subcatUrl = `${categoryUrl}&?subcat_id=`
+  const subcatUrl = `${categoryUrl}&subcat_id=`
   const router = useRouter()
+  const params = new URLSearchParams(useSearchParams().toString())
+  const subcatId = Number(params.get('subcat_id'))
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +30,10 @@ const SubCategory = ({
   const handleClick = (e: any, subcat_id: number) => {
     e.preventDefault()
     router.push(`/duas/${subcatUrl}${subcat_id}`)
+    const subcatRefDiv = document.getElementById(`subcat_id_${subcat_id}`)
+    if (subcatRefDiv) {
+      subcatRefDiv.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -36,7 +41,7 @@ const SubCategory = ({
       {subCategories &&
         subCategories.map((subCategory: SubCategory) => (
           <div
-            key={subCategory.subcat_id}
+            key={subCategory.id}
             className='flex flex-col justify-start items-start gap-y-2 ml-3 cursor-pointer'
           >
             <div className='flex flex-row my-2'>
@@ -46,11 +51,21 @@ const SubCategory = ({
                 className='flex flex-col justify-start items-start '
                 onClick={e => handleClick(e, subCategory.id)}
               >
-                <h5 className='font-semibold block my-2'>
+                <h5
+                  className={`font-semibold block my-2 ${
+                    subCategory.id == subcatId
+                      ? 'text-primary'
+                      : 'text-lettering'
+                  }`}
+                >
                   {subCategory.subcat_name_en}
                 </h5>
 
-                <div>
+                <div
+                  className={`${
+                    subCategory.id == subcatId ? 'block' : 'hidden'
+                  }`}
+                >
                   <CategoryDuas
                     subcategoryId={subCategory.id}
                     categoryId={categoryId}

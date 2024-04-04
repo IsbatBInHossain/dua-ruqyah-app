@@ -6,14 +6,14 @@ import DuaFooter from './DuaFooter'
 const DuaCard = ({ dua }: { dua: Dua }) => {
   return (
     <div
-      id={'dua_id_' + dua.dua_id}
+      id={'dua_id_' + dua.id}
       className='mb-5 p-6 rounded-xl bg-white'
       key={dua.dua_id}
     >
       <div className='flex items-center gap-3'>
         <Image src='/assets/duacard.svg' alt='icon' width={35} height={35} />
         <h3 className='font-semibold text-green-600'>
-          {dua.dua_id}. {dua.dua_name_en}
+          {dua.id}. {dua.dua_name_en}
         </h3>
       </div>
 

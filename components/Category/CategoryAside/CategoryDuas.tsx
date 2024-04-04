@@ -18,9 +18,9 @@ const CategoryDuas = ({ subcategoryId, categoryId, subcategoryURL }: Props) => {
   const handleClick = (e: any, id: number) => {
     e.preventDefault()
     router.push(`/duas/${subcategoryURL}&dua_id=${id}`)
-    const outletDiv = document.getElementById(`dua_id_${id}`)
-    if (outletDiv) {
-      outletDiv.scrollIntoView({ behavior: 'smooth' })
+    const duaRefDiv = document.getElementById(`dua_id_${id}`)
+    if (duaRefDiv) {
+      duaRefDiv.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -31,19 +31,13 @@ const CategoryDuas = ({ subcategoryId, categoryId, subcategoryURL }: Props) => {
     }
 
     fetchDuas()
-  })
+  }, [categoryId, subcategoryId])
   return (
     <>
       {duas &&
         duas.map(dua => {
           return (
-            <div
-              key={dua.dua_id}
-              onClick={e => handleClick(e, dua.id)}
-              className={`${
-                subcategoryId == dua.subcat_id ? 'block' : 'hidden'
-              }`}
-            >
+            <div key={dua.dua_id} onClick={e => handleClick(e, dua.id)}>
               <div className='flex items-center'>
                 <Image
                   src='/assets/dua.svg'
@@ -52,7 +46,7 @@ const CategoryDuas = ({ subcategoryId, categoryId, subcategoryURL }: Props) => {
                   height={20}
                   className='-translate-y-1 mr-2'
                 />
-                <p className='text-2xs my-3 text-left w-[95%] dark:text-gray-300 cursor-pointer'>
+                <p className='text-xs my-3 text-left w-[95%] dark:text-gray-300 cursor-pointer'>
                   {dua.dua_name_en}
                 </p>
               </div>

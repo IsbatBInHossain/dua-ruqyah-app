@@ -1,4 +1,4 @@
-import CategoryAside from './CategoryAside'
+import CategoryAside from './CategoryAside/CategoryAside'
 import CategoryBody from './CategoryBody'
 
 const CategoryPage = async () => {
