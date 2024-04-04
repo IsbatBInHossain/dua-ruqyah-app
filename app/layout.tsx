@@ -9,7 +9,7 @@ import Setting from '@/components/Setting/Setting'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Dua',
+  title: 'Dua & Ruqyah | All Duas Collection',
   description:
     'Dua is an app designed for learning, practicing, and reading duas (Islamic supplications). Explore a vast collection of duas for various occasions and purposes.',
 }
